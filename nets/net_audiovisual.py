@@ -5,23 +5,6 @@ from functools import partial
 import numpy as np
 import math
 
-class LabelSmoothingNCELoss(nn.Module):
-
-    def __init__(self, classes, smoothing=0.0, dim=-1):
-        super(LabelSmoothingNCELoss, self).__init__()
-        self.confidence = 1.0 - smoothing
-        self.smoothing = smoothing
-        self.cls = classes
-        self.dim = dim
-
-    def forward(self, pred, target):
-        pred = pred.softmax(dim=self.dim)
-        with torch.no_grad():
-            true_dist = torch.zeros_like(pred)
-            true_dist.fill_(self.smoothing / (self.cls - 1))
-            true_dist.scatter_(1, target.data.unsqueeze(1), self.confidence)
-        return -torch.mean(torch.log(torch.sum(true_dist * pred, dim=self.dim)))
-
 class Encoder(nn.Module):
     def __init__(self, encoder_layer, num_layers, norm=None, d_model=512, nhead=1, dim_feedforward=512, dropout=0.1):
         super(Encoder, self).__init__()
@@ -127,12 +110,17 @@ class MMIL_Net(nn.Module):
             self.dropout = None
 
     def forward(self, audio, visual, with_ca=True):
-        
         x1 = self.fc_a(audio)
+        # # 2d and 3d visual feature fusion
+        # vid_s = self.fc_v(visual).permute(0, 2, 1).unsqueeze(-1)
+        # vid_s = F.avg_pool2d(vid_s, (8, 1)).squeeze(-1).permute(0, 2, 1)
+        # vid_st = self.fc_st(visual_st)
+        # x2 = torch.cat((vid_s, vid_st), dim=-1)
+        # x2 = self.fc_fusion(x2)
         # clip feature
         vid_s = self.fc_v(visual.float()).permute(0, 2, 1).unsqueeze(-1)
         x2 = F.avg_pool2d(vid_s, (8, 1)).squeeze(-1).permute(0, 2, 1)
-
+        
         x1, x2 = self.hat_encoder(x1, x2, with_ca=True) # 128*10*512
 
         if self.dropout is not None:
