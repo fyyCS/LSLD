@@ -16,17 +16,13 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
 from torch.utils.data import DataLoader
-from collections import defaultdict
 from dataloader import LLP_dataset, ToTensor, categories
 from nets.net_audiovisual import MMIL_Net
 from utils.eval_metrics import segment_level, event_level, print_overall_metric
 import clip
-import matplotlib.pylab as plt
-import cv2
-from PIL import Image, ImageDraw
 import laion_clap
-def get_LLP_dataloader(args):
 
+def get_LLP_dataloader(args):
 
     train_dataset = LLP_dataset(label=args.label_train, audio_dir=args.audio_dir,
                                 video_dir=args.video_dir,
