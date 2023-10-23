@@ -4,7 +4,7 @@ Code for NeurIPS 2023 paper [Revisit Weakly-Supervised Audio-Visual Video Parsin
 
 # Method Overview
 
-![]()
+![](https://github.com/fyyCS/LSLD/blob/main/fig/model.jpeg)
 
 
 
