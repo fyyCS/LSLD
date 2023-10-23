@@ -10,11 +10,10 @@ Code for NeurIPS 2023 paper [Revisit Weakly-Supervised Audio-Visual Video Parsin
 
 You should install [CLIP](https://github.com/openai/CLIP) and [LAION-CLAP](https://github.com/LAION-AI/CLAP)
 
-# Datasets
+# Prepare data
 
-Resnet and VGGish features can be downloaded from [Unified Multisensory Perception: Weakly-Supervised Audio-Visual Video Parsing](https://github.com/YapengTian/AVVP-ECCV20)
-
-We also provide [visual feature]() extracted by CLIP and [audio feature]() extracted by LAION-CLAP
+1. Resnet and VGGish features can be downloaded from [Unified Multisensory Perception: Weakly-Supervised Audio-Visual Video Parsing](https://github.com/YapengTian/AVVP-ECCV20).
+We also provide [visual feature]() extracted by CLIP and [audio feature]() extracted by LAION-CLAP.
 
 
 
