@@ -41,7 +41,7 @@ python main.py --mode train_model  --num_layers 4 --lr 2e-4 --refine_label refin
 python main.py --mode test_LSLD --checkpoint LSLD.pt
 ```
 # Citation
-```python
+```script
 @article{fan2023revisit,
   title={Revisit Weakly-Supervised Audio-Visual Video Parsing from the Language Perspective},
   author={Fan, Yingying and Wu, Yu and Lin, Yutian and Du, Bo},
