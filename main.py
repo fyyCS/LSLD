@@ -474,12 +474,11 @@ def main():
 
     start = time.time()
 
-    # train_noise_estimator/25 epochs
     if args.mode == 'label_denoise':
         train_loader, val_loader, test_loader = get_LLP_dataloader(args)    
         if not os.path.exists(args.language):
             refineLabel(args, train_loader)
-        if not os.path.exists(args.seg_idx_all):
+        if not os.path.exists(args.refine_label):
             getVisualCleanLabel(args, train_loader)
 
     elif args.mode == 'train_model':
@@ -520,7 +519,6 @@ def main():
         print(best_epoch)
         eval(args, model, test_loader, args.label_test)
 
-    # test on noise_estimator/test_JoMoLD
     elif args.mode == 'test_LSLD':
         dataset = args.label_test
         test_dataset = LLP_dataset(label=dataset,
