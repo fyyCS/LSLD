@@ -311,8 +311,8 @@ def eval(args, model, val_loader, set):
     print("begin evaluate.")
     # load annotations
     df = pd.read_csv(set, header=0, sep='\t')
-    df_a = pd.read_csv("./data/AVVP_eval_audio.csv", header=0, sep='\t')
-    df_v = pd.read_csv("./data/AVVP_eval_visual.csv", header=0, sep='\t')
+    df_a = pd.read_csv("data/AVVP_eval_audio.csv", header=0, sep='\t')
+    df_v = pd.read_csv("data/AVVP_eval_visual.csv", header=0, sep='\t')
     
     id_to_idx = {id: index for index, id in enumerate(categories)}
     
@@ -454,7 +454,7 @@ def main():
     parser.add_argument('--event_ratio', type=float, default=4)
     parser.add_argument('--noise_ratio', type=float, default=0.4)
     parser.add_argument("--language", type=str, default='refine_label/denoised_label.npz', help="denoised label")
-    parser.add_argument("--checkpoint", type=str, default='MMIL_Net', help="save model name")
+    parser.add_argument("--checkpoint", type=str, default='LSLD.pt', help="save model name")
     args = parser.parse_args()
 
     # print parameters
@@ -512,7 +512,7 @@ def main():
                     state_dict['optimizer'] = optimizer.state_dict()
                     state_dict['scheduler'] = scheduler.state_dict()
                     state_dict['epochs'] = args.epochs
-                    torch.save(state_dict, osp.join(args.model_save_dir, args.checkpoint2))
+                    torch.save(state_dict, osp.join(args.model_save_dir, args.checkpoint))
         optimizer.zero_grad()
         model = best_model
         print("Test the best model:")
