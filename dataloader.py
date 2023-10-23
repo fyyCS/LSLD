@@ -33,7 +33,7 @@ class LLP_dataset(Dataset):
                  transform=None, a_smooth=1.0, v_smooth=0.9):
         self.df = pd.read_csv(label, header=0, sep='\t')
         # self.filenames = self.df["filename"]
-        self.need_to_change_v, self.need_to_change_a = pkl.load(open("/data2/fanyingying/LSLD2/need_to_change2.pkl", 'rb'))
+        self.need_to_change_v, self.need_to_change_a = pkl.load(open("need_to_change.pkl", 'rb'))
         self.audio_dir = audio_dir
         self.video_dir = video_dir
         self.transform = transform
@@ -45,12 +45,10 @@ class LLP_dataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.df.loc[idx, :]
-        # name = row[0].split(",")[1][:11]
         name = row[0][:11]
         audio = np.load(os.path.join(self.audio_dir, name + '.npy'))
         video_s = np.load(os.path.join(self.video_dir, name + '.npy'))
-        # video_st = np.load(os.path.join(self.st_dir, name + '.npy'))
-        # ids = row[0].split(",")[2:]
+        # video_st = np.load(os.path.join(self.st_dir, name + '.npy')) resnet feature
         ids =  row[-1].split(',')
         label = ids_to_multinomial(ids)
         Pa = self.a_smooth * label + (1 - self.a_smooth) * 0.5
@@ -68,8 +66,6 @@ class LLP_dataset(Dataset):
 
         sample = {'audio': audio, 'video_s': video_s, 
                   'label': label, 'Pa': Pa, 'Pv': Pv, 'idx': np.array([idx])}
-
-
 
         if self.transform:
             sample = self.transform(sample)
