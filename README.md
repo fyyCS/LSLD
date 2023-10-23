@@ -25,11 +25,16 @@ python main.py --mode label_denoise --language refine_label/denoised_label.npz -
 
 1. Resnet and VGGish features
 ```python
-python main.py --mode train_model  --num_layers 6 --lr 8e-5 --refine_label refine_label/final_label.npz
+python main.py --mode train_model  --num_layers 6 --lr 8e-5 --refine_label refine_label/final_label.npz --save_model true
 ```
 2. CLAP and CLIP features
 ```python
-python main.py --mode train_model  --num_layers 4 --lr 2e-4 --refine_label refine_label/final_label.npz
+python main.py --mode train_model  --num_layers 4 --lr 2e-4 --refine_label refine_label/final_label.npz --save_model true --checkpoint LSLD.pt
+```
+
+# Test the model
+```python
+python main.py --mode test_LSLD --checkpoint LSLD.pt
 ```
 
 
