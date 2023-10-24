@@ -56,14 +56,6 @@ class LLP_dataset(Dataset):
         pa = label.copy()
         pv = label.copy()
 
-        # # We change modality-aware label here
-        for c in range(25):
-            if label[c] != 0:
-                if idx in self.need_to_change_v[c]:
-                    pv[c] = 0
-                if idx in self.need_to_change_a[c]:
-                    pa[c] = 0
-
         sample = {'audio': audio, 'video_s': video_s, 
                   'label': label, 'Pa': Pa, 'Pv': Pv, 'idx': np.array([idx])}
 
