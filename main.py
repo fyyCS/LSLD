@@ -35,12 +35,10 @@ def get_LLP_dataloader(args):
                                transform=transforms.Compose([ToTensor()]))
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size,
-                              shuffle=True, num_workers=5, pin_memory=True, sampler=None)
+                              shuffle=True, pin_memory=True, sampler=None)
     # batch size = 1
-    val_loader = DataLoader(val_dataset, batch_size=1, shuffle=False,
-                            num_workers=1, pin_memory=True, sampler=None)
-    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False,
-                             num_workers=1, pin_memory=True, sampler=None)
+    val_loader = DataLoader(val_dataset, batch_size=1, shuffle=False, pin_memory=True, sampler=None)
+    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, pin_memory=True, sampler=None)
 
 
     return train_loader, val_loader, test_loader
