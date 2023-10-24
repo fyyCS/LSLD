@@ -18,7 +18,7 @@ pip install -r requirement.txt
 ## Prepare data
 
 1. Resnet and VGGish features can be downloaded from [Unified Multisensory Perception: Weakly-Supervised Audio-Visual Video Parsing](https://github.com/YapengTian/AVVP-ECCV20).
-We also provide [visual feature]() extracted by CLIP and [audio feature]() extracted by LAION-CLAP.
+We also provide [visual feature](https://drive.google.com/drive/folders/1JcOT_Pm17MAb-wQERXOCLQqoyT9nObJL?usp=sharing) extracted by CLIP and [audio feature](https://drive.google.com/drive/folders/1JcOT_Pm17MAb-wQERXOCLQqoyT9nObJL?usp=sharing) extracted by LAION-CLAP.
 2. Put the downloaded features into data/feats/.
 3. We use CLIP(ViT-B/16) and [LAION-CLAP](https://huggingface.co/lukewys/laion_clap/blob/main/630k-audioset-best.pt) pre-trained on audioset.
 
