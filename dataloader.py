@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
-import pickle as pkl
 
 categories = ['Speech', 'Car', 'Cheering', 'Dog', 'Cat', 'Frying_(food)',
               'Basketball_bounce', 'Fire_alarm', 'Chainsaw', 'Cello', 'Banjo',
