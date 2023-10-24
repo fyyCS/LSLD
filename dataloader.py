@@ -33,7 +33,7 @@ class LLP_dataset(Dataset):
                  transform=None, a_smooth=1.0, v_smooth=0.9):
         self.df = pd.read_csv(label, header=0, sep='\t')
         # self.filenames = self.df["filename"]
-        self.need_to_change_v, self.need_to_change_a = pkl.load(open("need_to_change.pkl", 'rb'))
+        # self.need_to_change_v, self.need_to_change_a = pkl.load(open("need_to_change.pkl", 'rb'))
         self.audio_dir = audio_dir
         self.video_dir = video_dir
         self.transform = transform
