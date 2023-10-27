@@ -402,9 +402,6 @@ def eval(args, model, val_loader, set):
             F_event.append(f)
             F_event_av.append(f_av)
     
-    print(num_all)
-    print('unatch segment percent:{}\n'.format(num_seg/(10*num_all)))
-    print('unatch video percent:{}\n'.format(num_vid/num_all))
     audio_segment_level, visual_segment_level, av_segment_level, avg_type, avg_event, \
         audio_event_level, visual_event_level, av_event_level, avg_type_event, avg_event_level \
         = print_overall_metric(F_seg_a, F_seg_v, F_seg, F_seg_av, F_event_a, F_event_v, F_event, F_event_av)
