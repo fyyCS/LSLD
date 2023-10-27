@@ -46,7 +46,7 @@ python main.py --mode test_LSLD --checkpoint LSLD.pt
 ```script
 @article{fan2023revisit,
   title={Revisit Weakly-Supervised Audio-Visual Video Parsing from the Language Perspective},
-  author={Fan, Yingying and Wu, Yu and Lin, Yutian and Du, Bo},
+  author={Fan, Yingying and Wu, Yu and Du, Bo and Lin, Yutian },
   journal={arXiv preprint arXiv:2306.00595},
   year={2023}
 }
