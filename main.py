@@ -425,7 +425,7 @@ def main():
     parser.add_argument('--lr_step_size', type=int, default=6)
     parser.add_argument('--lr_gamma', type=float, default=0.25)
     parser.add_argument('--seed', type=int, default=6, help='random seed')
-    parser.add_argument("--mode", type=str, default='train_noise_estimator',
+    parser.add_argument("--mode", type=str, default='train_model',
                         help="with mode to use")
     parser.add_argument('--num_layers', type=int, default=4)
     parser.add_argument('--audio_weight', type=float, default=3.0)
