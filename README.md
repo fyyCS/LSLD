@@ -40,6 +40,7 @@ python main.py --mode train_model --num_layers 4 --lr 2e-4 --refine_label refine
 ```
 
 ## Test the model
+* We put the pre-trained model in this [Link](https://drive.google.com/file/d/1GpRn_EXM9ompdpgVF3V-HlyBdTDttHGH/view?usp=drive_link)
 ```script
 python main.py --mode test_LSLD --checkpoint LSLD.pt
 ```
